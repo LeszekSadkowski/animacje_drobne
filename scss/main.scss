@@ -1,0 +1,208 @@
+.test {
+  height:50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-1 {
+  background: #E85A43;
+}
+
+.scroll {
+  width:20px;
+  height:40px;
+  border:1px solid rgba(#fff, 0.5);
+  border-radius:10px;
+}
+.scroll:after {
+  content:'';
+  width:10px;
+  height:10px;
+  display: block;
+  background: #fff;
+  margin:5px auto;
+  border-radius:50%;
+  animation: scrollAnim 1s 0s infinite alternate ease-in-out;
+}
+
+@keyframes scrollAnim {
+  50% {
+    transform: scale(0.8, 1.2);
+  }
+  100% {
+    margin-top:25px;
+  }
+}
+
+
+//loading1
+.test-2 {
+  background: cornflowerblue;
+}
+.loading-1 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+
+  div {
+    border-radius: 50%;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:1px solid rgba(#fff, 0.5);
+    background: linear-gradient(
+                    transparent,
+                    transparent 50%,
+                    rgba(#fff, 0.5) 50%,
+                    rgba(#fff, 0.5)
+    );
+    background-size: 10px 10px;
+    animation: loading1Anim 1s 0s infinite linear, loading1AnimRot 4s 0s infinite linear;
+  }
+  div > div {
+    animation: loading1Anim 1s 0s infinite linear, loading1AnimRot 4s 0s infinite linear;
+  }
+}
+
+@keyframes loading1Anim {
+  100% {
+    background-position: 0 10px;
+  }
+}
+
+@keyframes loading1AnimRot {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.test-3 {
+  background: yellowgreen;
+}
+.loading-2 {
+  width:40px;
+  height:40px;
+  display: flex;
+
+  span {
+    display: block;
+    background: #fff;
+    margin:1px;
+    flex-grow: 1;
+    border-radius: 10px;
+    animation: loading2Anim 1s 0s infinite alternate;
+  }
+
+  @for $i from 1 through 5 {
+    $delay : (0.1 * $i) * 1s;
+    span:nth-of-type(#{$i}) {
+      animation-delay: $delay;
+    }
+  }
+}
+
+@keyframes loading2Anim {
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+
+.test-4 {
+  background: brown;
+}
+.loading-3 {
+  width:20px;
+  height:20px;
+  border-radius: 50%;
+  border:3px solid rgba(#fff, 0.3);
+  border-right-color: #fff;
+  animation: loading3Anim 0.4s 0s infinite linear;
+}
+
+@keyframes loading3Anim {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.test-5 {
+  background: blueviolet;
+}
+.loading-4 {
+  width:60px;
+  height:60px;
+  position: relative;
+  animation: loading4Anim 1s 0s infinite alternate ease-in-out;
+
+
+  &:before {
+    content:'';
+    width:15px;
+    height:15px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    right:0;
+    transform: translate(50%, -50%);
+    animation: loading4AnimBall 1s 0s infinite alternate ease-in-out;
+  }
+}
+
+@keyframes loading4Anim {
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+@keyframes loading4AnimBall {
+  0% {
+    transform: translate(50%, -50%) scale(1, 0.8);
+  }
+  50% {
+    transform: translate(50%, -50%) scale(0.8, 1.4);
+  }
+  100% {
+    transform: translate(50%, -50%) scale(1, 0.8);
+  }
+}
+
+
+
+.test-6 {
+  background: gold;
+  font-size:90px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+.loading-5 {
+  span {
+    color: gold;
+    display: inline-block;
+  }
+
+  @for $i from 1 through 20 {
+    span:nth-of-type(#{$i}) {
+      $delay : (0.2 * $i) * 1s;
+      animation: loading5Anim 2s $delay infinite alternate;
+    }
+  }
+}
+
+@keyframes loading5Anim {
+  100% {
+    transform: translateX(10px) scale(1.2);
+    text-shadow: 10px 10px 30px rgba(#000, 0.6);
+    filter:blur(1px);
+  }
+}

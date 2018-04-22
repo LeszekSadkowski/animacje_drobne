@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="test test-1">
+
+    <div class="scroll">
+    </div>
+
+</div>
+
+
+<div class="test test-2">
+
+    <div class="loading-1">
+        <div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="test test-3">
+
+    <div class="loading-2">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+</div>
+
+<div class="test test-4">
+
+    <div class="loading-3"></div>
+
+</div>
+
+<div class="test test-5">
+
+    <div class="loading-4">
+    </div>
+
+</div>
+
+<div class="test test-6">
+
+    <div class="loading-5">
+        TRWA WCZYTYWANIE...
+    </div>
+
+</div>
+
+
+<script>
+    var cnt = document.querySelector('.loading-5');
+    var str = "";
+    for (var i=0; i<cnt.innerText.length; i++) {
+        var char = cnt.innerText.charAt(i);
+
+        if (char === ' ') {
+            str += "<span>&nbsp;</span>";
+        } else {
+            str += "<span>" + char + "</span>";
+        }
+
+
+    }
+    cnt.innerHTML = str;
+</script>
+</body>
+</html>
